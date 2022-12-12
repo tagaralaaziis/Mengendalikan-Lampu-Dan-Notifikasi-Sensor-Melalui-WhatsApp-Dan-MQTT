@@ -1,0 +1,28 @@
+//Inisialisasi Whatsapp Web
+const { Client, LocalAuth } = require("whatsapp-web.js");
+const whatsappClient = new Client({
+  authStrategy: new LocalAuth(),
+});
+
+//Menampilkan QRCode Untuk Login Whatsapp
+const qrcode = require("qrcode-terminal");
+whatsappClient.on("qr", (qr) => {
+  console.log("QR RECEIVED", qr);
+  qrcode.generate(qr, { small: true });
+});
+
+//Menampilkan Keterangan Sudah Login
+whatsappClient.on("ready", () => {
+  console.log("Client is ready!");
+});
+
+//Menerima Pesan dari Whatsapp
+whatsappClient.on("message", (message) => {
+  console.log(message.body);
+  if (message.body === "Ping") {
+    message.reply("Pong");
+    whatsappClient.sendMessage(message.from, "Pong lagi");
+  }
+});
+
+whatsappClient.initialize();

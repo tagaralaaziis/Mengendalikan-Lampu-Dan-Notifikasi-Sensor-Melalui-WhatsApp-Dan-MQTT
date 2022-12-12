@@ -1,0 +1,14 @@
+Software yang digunakan:
+1. Arduino IDE Versi 1.8.x
+2. Visual Studio Code
+3. NodeJS
+4. GIT
+
+Hardware yang digunakan:
+1. ESP32 DEV KIT
+2. ESP Baseboard
+3. DHT11 Sensor
+4. Lampu LED, Kabel, Steker, fiting lampu
+5. Kabel Jumper Female-Female
+6. Adaptor 9V 1A
+Jika belum ada hardware bisa gunakan: wokwi.com
